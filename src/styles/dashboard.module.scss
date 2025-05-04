@@ -1,0 +1,129 @@
+.container {
+    padding: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #0070f3;
+    color: white;
+  }
+  
+  .error {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid red;
+    background-color: #ffe6e6;
+    color: red;
+  }
+
+  .statistics {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      color: #333;
+    }
+  
+    p {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #555;
+    }
+  }
+
+  .inputButtonWrapper input,
+  .inputButtonWrapper button {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .inputButtonWrapper button {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .container {
+    input {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      background-color: #0070f3;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+  
+      &:hover {
+        background-color: #005bb5;
+      }
+    }
+  }
+  .container {
+    padding: 20px;
+  
+    input {
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  .reminders {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ffeeba;
+    }
+  }
+  
+  // Стили для статусов задач
+  .planned {
+    background-color: #e7f5ff;
+  }
+  
+  .in_progress {
+    background-color: #fff3bf;
+  }
+  
+  .completed {
+    background-color: #ebfbee;
+  }
+  
+  .delayed {
+    background-color: #fff5f5;
+    color: #c92a2a;
+  }

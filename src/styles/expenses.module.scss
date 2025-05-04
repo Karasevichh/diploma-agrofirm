@@ -1,0 +1,84 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+    h1, h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form select,
+    .form input,
+    .form textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    
+    .form textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #0070f3;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    
+      &:hover {
+        background-color: #005bb5;
+      }
+    }
+    
+    
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      th {
+        background: #f4f4f4;
+      }
+    
+      tr:hover {
+        background: #f1f1f1;
+      }
+    }
+    
+    .actions {
+      display: flex;
+      gap: 5px;
+    
+      button {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  

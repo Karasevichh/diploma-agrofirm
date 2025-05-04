@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Harvest {
+  id     Int     @id @default(autoincrement())
+  crop   String
+  area   Float
+  yield  Float
+  createdAt  DateTime @default(now())
+  fields    Field[]  @relation("HarvestToField")
+}
+
+model Resource {
+  id        Int      @id @default(autoincrement())
+  equipment String
+  workers   Int
+  task      String
+  fieldId   Int
+  field     Field    @relation(fields: [fieldId], references: [id])
+
+  stageId   Int   
+  status    String   @default("planned") 
+
+  startTime DateTime @default(now()) 
+  duration  Int  
+
+  expenses    Expense[]   @relation("ResourceExpenses")
+
+  createdAt DateTime @default(now())
+}
+
+model Expense {
+  id          Int      @id @default(autoincrement())
+  type        String
+  description String?
+  amount      Float
+  createdAt   DateTime @default(now())
+
+  transportId Int?
+  transport   Resource? @relation("ResourceExpenses", fields: [transportId], references: [id])
+
+  fieldId     Int?
+  field       Field? @relation("FieldExpenses", fields: [fieldId], references: [id])
+}
+
+model Field {
+  id         Int      @id @default(autoincrement())
+  harvestId  Int      @unique
+  harvest    Harvest  @relation(fields: [harvestId], references: [id], name: "HarvestToField")
+  coordinates Json
+  color      String
+  resources Resource[] 
+  expenses    Expense[]   @relation("FieldExpenses")
+}
