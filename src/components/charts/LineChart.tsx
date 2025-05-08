@@ -1,4 +1,5 @@
 'use client';
+import styles from '../../styles/statistics.module.scss';
 
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 

@@ -77,7 +77,9 @@
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { fetchHarvestData, saveHarvestData } from '../store/slices/harvestSlice';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from '../styles/dashboard.module.scss';
+import search from '../img/search.svg';
 
 export default function DashboardClient() {
   const dispatch = useAppDispatch();
@@ -150,40 +152,45 @@ export default function DashboardClient() {
       <h1>Панель управления</h1>
 
       {/* Фильтр */}
-      <div className={styles.filter}>
+      <div className={styles.filteredContainer}>
         <input
           type="text"
           placeholder="Фильтр по культуре"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         />
+        <div className={styles.filteredContainerIcon}>
+          <Image src={search} alt="" />
+        </div>
       </div>
 
       {/* Таблица с данными */}
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>Культура</th>
-            <th>Площадь (га)</th>
-            <th>Урожай (тонн)</th>
-            <th>Дата</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map((item, index) => (
-            <tr key={index}>
-              <td>{item.crop}</td>
-              <td>{item.area}</td>
-              <td>{item.yield}</td>
-              <td>{new Date(item.createdAt!).toLocaleDateString()}</td>
+      <div className={styles.tableDashboard}>
+        <table className={styles.tableDashboardColumns}>
+          <thead>
+            <tr>
+              <th>Культура</th>
+              <th>Площадь (га)</th>
+              <th>Урожай (тонн)</th>
+              <th>Дата</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredData.map((item, index) => (
+              <tr key={index}>
+                <td>{item.crop}</td>
+                <td>{item.area}</td>
+                <td>{item.yield}</td>
+                <td>{new Date(item.createdAt!).toLocaleDateString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Форма добавления */}
       <h2>Добавить данные об урожае</h2>
-      <div className={styles.inputButtonWrapper}>
+      <div className={styles.containerInputs}>
         <input
           type="text"
           placeholder="Культура"
